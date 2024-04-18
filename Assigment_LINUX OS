@@ -1,0 +1,39 @@
+ubuntu $ useradd -m karolina
+ubuntu $ sudo usermod -aG sudo karolina
+ubuntu $ passwd karolina
+New password: 
+Retype new password: 
+passwd: password updated successfully
+ubuntu $ su - karolina
+$ mkdir Karolina
+$ cd Karolina
+$ touch Balukh.txt
+$ ln -s Balukh.txt balukhK.txt
+$ ll
+-sh: 5: ll: not found
+$ ls -l
+total 0
+-rw-rw-r-- 1 karolina karolina  0 Apr 18 09:45 Balukh.txt
+lrwxrwxrwx 1 karolina karolina 10 Apr 18 09:45 balukhK.txt -> Balukh.txt
+$ cp Balukh.txt ..
+$ sudo chown root Balukh.txt
+[sudo] password for karolina: 
+$ sudo chmod 644 Balukh.txt
+$ ls -l
+total 0
+-rw-r--r-- 1 root     karolina  0 Apr 18 09:45 Balukh.txt
+lrwxrwxrwx 1 karolina karolina 10 Apr 18 09:45 balukhK.txt -> Balukh.txt
+$ passwd_file="/etc/passwd"
+$ awk -F':' '{ if ($7 == "/bin/bash") print $1 }' $passwd_file
+root
+ubuntu
+kc-internal
+$ nano find_bash_users.sh
+$ vi find_bash_users.sh
+-sh: 14: мvi: not found
+$ vi find_bash_users.sh
+$ chmod +x find_bash_users.sh
+$ ./find_bash_users.sh
+./find_bash_users.sh: 1: passwd_file=/etc/passwd: not found
+./find_bash_users.sh: 2: awk: not found
+$ 
