@@ -1,0 +1,38 @@
+ubuntu $ useradd -m karolina
+ubuntu $ usermod -aG sudo karolina
+ubuntu $ passwd karolina
+New password: 
+Retype new password: 
+passwd: password updated successfully
+ubuntu $ su - karolina
+$ mkdir Karolina
+$ cd Karolina
+$ touch Balukh.txt
+$   
+$ ln -s Balukh.txt balukhK.txt
+$ ls -l
+total 0
+-rw-rw-r-- 1 karolina karolina  0 Apr 19 12:33 Balukh.txt
+lrwxrwxrwx 1 karolina karolina 10 Apr 19 12:34 balukhK.txt -> Balukh.txt
+$ cp Balukh.txt ..
+$ sudo chown root Balukh.txt
+[sudo] password for karolina: 
+$ sudo chmod 644 Balukh.txt
+$ ls -l
+total 0
+-rw-r--r-- 1 root     karolina  0 Apr 19 12:33 Balukh.txt
+lrwxrwxrwx 1 karolina karolina 10 Apr 19 12:34 balukhK.txt -> Balukh.txt
+$ vi find_bash_users.sh
+$ chmod +x find_bash_users.sh
+$ ./find_bash_users.sh
+root
+ubuntu
+kc-internal
+$
+
+
+
+
+
+#!/bin/bash
+grep '/bin/bash' /etc/passwd | cut -d: -f1
